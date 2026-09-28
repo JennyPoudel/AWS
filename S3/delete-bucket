@@ -1,0 +1,13 @@
+#! /bin/bash
+
+
+# Check if the first argument is empty
+if [ -z "$1" ]; then
+    echo "Error: No bucket name provided to delete!"
+    echo "Usage: $0 <bucket_name>"
+    exit 1
+fi
+
+echo "Deleting bucket: $1"
+
+aws s3api delete-bucket --bucket "$1" --region us-east-1 

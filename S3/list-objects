@@ -1,0 +1,13 @@
+#! /bin/bash
+set -e
+
+# Check if the first argument is empty
+if [ -z "$1" ]; then
+    echo "Error: No bucket name provided to list objects!"
+    echo "Usage: $0 <bucket_name>"
+    exit 1
+fi
+
+echo "listing objects for bucket: $1"
+
+aws s3api list-objects --bucket "$1" --region us-east-1 

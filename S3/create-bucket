@@ -1,0 +1,13 @@
+#! /bin/bash
+
+# Check if the first argument is empty
+if [ -z "$1" ]; then
+    echo "Error: No bucket name provided!"
+    echo "Usage: $0 <bucket_name>"
+    exit 1
+fi
+
+echo "Creating bucket: $1"
+
+aws s3api create-bucket --bucket "$1" --region us-east-1 \
+    --query Location --output text
